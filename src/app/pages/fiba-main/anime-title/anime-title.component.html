@@ -1,0 +1,9 @@
+<div class="d-flex justify-content-center mb-5">
+    <span *ngIf="fileToBase64;else base64ToFile" class="h3" #title="animated"
+        [animAted]="{time: 1000, animation: 'fadeIn'}">{{entityNames[randomNumber]}} to Base64</span>
+    <ng-template #base64ToFile>
+        <span class="h3" #title="animated" [animAted]="{time: 1000, animation: 'fadeIn'}">Base64 to
+            {{entityNames[randomNumber]}}</span>
+
+    </ng-template>
+</div>
