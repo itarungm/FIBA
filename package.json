@@ -21,6 +21,7 @@
     "@angular/platform-browser": "~11.2.13",
     "@angular/platform-browser-dynamic": "~11.2.13",
     "@angular/router": "~11.2.13",
+    "firebase-tools": "^9.12.0",
     "ngx-animations": "^5.0.4",
     "ngx-dropzone": "^3.0.0",
     "ngx-toastr": "^14.0.0",
