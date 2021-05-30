@@ -1,6 +1,6 @@
 # FIBA
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.12.
+FIBA is an Angular Based file converter application where a user can upload their respective file and convert ito BASE64 or Byte Array. ngV11
 
 ## Development server
 
