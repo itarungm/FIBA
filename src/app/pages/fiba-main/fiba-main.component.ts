@@ -9,6 +9,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class FibaMainComponent implements OnInit {
   @ViewChild('dropBox') dropBox;
+
   @ViewChild('previewBox') previewBox;
 
   dropBoxAnimeTimerId;
@@ -22,10 +23,13 @@ export class FibaMainComponent implements OnInit {
   uploadedFileName: string;
   fileType: string;
   fileToBase64=true;
+  
+  imageChangedEvent: any = '';
+  croppedImage: any = '';
   constructor(private toastr: ToastrService, private dialog: MatDialog) { 
     this.dropBoxAnimeTimerId = setInterval(()=>{
-      if(!this.showTextBox){
-        this.dropBox.animate();
+      if(!this.showTextBox && this.fileToBase64){
+        this.dropBox?.animate();
       }
     },this.animeTimerOfDropBox)
   }
@@ -37,7 +41,11 @@ export class FibaMainComponent implements OnInit {
   }
 
 	onSelect(event) {
-    console.log(event);
+    console.log(event.addedFiles[0]);
+    if(!event?.addedFiles[0]){
+      this.toastr.error('I think I cant convert it ! Let me inform to my Master.','Umm, Sorry!');
+      return;
+    }
     this.uploadedFileName = event.addedFiles[0].name?.split('.')[0];
     this.fileType = event.addedFiles[0].type;
 		this.files.push(...event.addedFiles);
@@ -54,13 +62,14 @@ export class FibaMainComponent implements OnInit {
     this.showTextBox=true;
   }
 
+
   onRemove(event) {
 		this.files.splice(this.files.indexOf(event), 1);
 	}
 
 	downloadBase64(){
     const element = document.createElement('a');
-    element.setAttribute('href', 'data:text/plain;charset=utf-8,'+this.base64StringAfterConversion.substr(this.base64StringAfterConversion.indexOf(',') + 1));
+    element.setAttribute('href', 'data:text/plain;charset=utf-8,'+this.base64StringAfterConversion);
     element.setAttribute('download', this.uploadedFileName+'.txt');
     element.style.display = 'none';
     document.body.appendChild(element);

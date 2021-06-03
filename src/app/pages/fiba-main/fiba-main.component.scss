@@ -60,6 +60,7 @@
 
 .left-panel{
     width: 10rem;
+    position: relative;
     img{
         width: 10rem;
 
@@ -72,7 +73,7 @@
 }
 .btn-danger {
     color: #fff;
-    background-color: #f93154;
+    background-color: #f10f35;
 }
 .btn-warning {
     color: #fff;
@@ -166,6 +167,51 @@
     color: black;
   }
 
+  fiba-base64-to-file{
+    width: 80%;
+  }
 
 
+  .custom-mssg{
+    top: -90px;
+    left: 20px;
+    width: 200px !important;
+    position: absolute;
+  }
+
+  .tip {
+    // width: 0px;
+    height: 0px;
+    position: absolute;
+    background: transparent;
+    border: 10px solid #ccc;
+  }
+
+  .dialogbox .body {
+    position: relative;
+    max-width: 300px;
+    height: auto;
+    // margin: 20px 10px;
+    padding: 5px;
+    background-color: #DADADA;
+    border-radius: 20px;
+    border: 5px solid #ccc;
+  }
   
+  .body .message {
+    min-height: 15px;
+    border-radius: 3px;
+    font-family: Arial;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #797979;
+  }
+  
+.tip-down {
+  bottom: -25px;
+  left: 10px;
+  border-right-color: transparent;
+  border-left-color: transparent;
+  border-bottom-color: transparent;  
+}
+

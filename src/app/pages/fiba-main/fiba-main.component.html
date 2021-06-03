@@ -3,7 +3,7 @@
         <fiba-anime-title [fileToBase64]="fileToBase64"></fiba-anime-title>
         <div class="container">
 
-            <div class="d-flex justify-content-center mt-3 mb-2" *ngIf="showTextBox">
+            <div class="d-flex justify-content-center mt-3 mb-2" *ngIf="showTextBox && fileToBase64">
                 <div class="mr-2"
                     *animIf="showTextBox; info: { startAnim: 'backInDown', endAnim: 'bounceOut', time: 1000 }">
                     <button type="button" class="btn btn-success ripple-surface btn-rounded" (click)="downloadBase64()">
@@ -37,16 +37,27 @@
                 </div>
 
             </div>
-            <div class="d-flex">
+            <div class="d-flex" style="height: 15rem;">
+   
                 <div class="d-flex align-items-center justify-content-center left-panel">
-                    <img src="../../../assets/images/undraw_refreshing_beverage_td3r.svg">
+                    <div class="dialogbox custom-mssg">
+                        <div class="body">
+                          <span class="tip tip-down"></span>
+                          <div class="message">
+                            <span>
+                                Hey! You can switch FIBA engines using that right switch! Yes, That Toggle.
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    <img  src="../../../assets/images/undraw_refreshing_beverage_td3r.svg">
                 </div>
                 <div class="d-flex justify-content-center main-content">
                     <ng-container *ngIf="fileToBase64">
                         <ngx-dropzone *ngIf="!showTextBox" #dropBox="animated"
                             [animAted]="{time: 1000, animation: dropBoxAnimationName}" [multiple]="false"
                             [maxFileSize]="maxFileSize" [disableClick]="files.length===1" (change)="onSelect($event)"
-                            [accept]="'image/*,application/pdf,.txt,.docx,.doc,.psd,.xls,.xlsx'" class="custom-dropzone"
+                            [accept]="'image/*,application/pdf,.txt,.docx,.doc,.psd,.xls,.xlsx,.html,.htm'" class="custom-dropzone"
                             id="style-9">
                             <ngx-dropzone-label>
                                 <p class="text-lg mt-3"><span class="">Click Here </span>to Browse File (3 MB max)</p>
@@ -59,19 +70,19 @@
                         </ngx-dropzone>
                         <textarea style="width: 60%; height: 180px;" [(ngModel)]="base64StringAfterConversion"
                             *animIf="showTextBox; info: { startAnim: 'bounceInLeft', endAnim: 'rubberBand', time: 1000 }"
-                            id="base64">
+                            id="style-9">
 
                 </textarea>
                     </ng-container>
 
-                    <ng-container *ngIf="!fileToBase64">
-                        <fiba-base64-to-file></fiba-base64-to-file>
-                    </ng-container>
+                    
+                <fiba-base64-to-file *ngIf="!fileToBase64"></fiba-base64-to-file>
+                  
 
                 </div>
                 <div class="d-flex justify-content-center switch-outer align-items-center">
                     <div class="content d-flex justify-content-center">
-                        <label class="switch">
+                        <label class="switch" matTooltip="Switch Between Fiba Engines">
                             <input type="checkbox" (change)="onContentSwitch($event)">
                             <span class="slider round"></span>
                         </label>
@@ -80,6 +91,7 @@
             </div>
         </div>
     </div>
+
 
     
 </header> <!-- end of header -->
@@ -101,3 +113,4 @@
   <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button>
 </div> -->
 </ng-template>
+

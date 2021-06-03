@@ -10,6 +10,8 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { Base64ToFileComponent } from '../base64-to-file/base64-to-file.component';
+import {MatInputModule} from '@angular/material/input';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { Base64ToFileComponent } from '../base64-to-file/base64-to-file.componen
     MatDialogModule,
     MatButtonModule,
     MatIconModule,
+    MatInputModule,
+    MatTooltipModule
   
   ]
 })

@@ -1,1 +1,57 @@
-<h2>Coming Soon</h2>
+<div class="d-flex justify-content-center mt-3 mb-2">
+    <div class="mr-2">
+        <button type="button" class="btn btn-success ripple-surface btn-rounded" (click)="takeUserRequestedName(this.ConverterModule.Base64ToJPG)">
+            <span>Base64 to JPG</span>
+
+        </button>
+    </div>
+    <div class="mr-2">
+        <button type="button" class="btn btn-danger ripple-surface btn-rounded" (click)="takeUserRequestedName(this.ConverterModule.Base64ToPNG)">
+            <span>Base64 to PNG</span>
+        </button>
+
+    </div>
+    <div class="mr-2">
+        <button type="button" class="btn btn-warning ripple-surface btn-rounded" (click)="takeUserRequestedName(this.ConverterModule.Base64ToPDF)">
+            <span>Base64 to PDF</span>
+        </button>
+
+    </div>
+    <div class="mr-2">
+        <button type="button" class="btn btn-secondary ripple-surface btn-rounded" (click)="takeUserRequestedName(this.ConverterModule.Base64ToHTML)">
+            <span>Base64 to HTML</span>
+            
+        </button>
+
+    </div>
+    <div class="mr-2">
+        <button type="button" class="btn btn-primary ripple-surface btn-rounded" (click)="takeUserRequestedName(this.ConverterModule.Base64ToTEXT)">
+            <span>Base64 to TEXT</span>
+            
+        </button>
+
+    </div>
+
+</div>
+<div>
+    <textarea  id="style-9" style="width: 100%; height: 180px;" placeholder="Paste Your Base64 String" [(ngModel)]="base64String">
+    </textarea >
+</div>
+
+<ng-template #inputDialogBox>
+    <div mat-dialog-content>
+        <mat-form-field class="example-full-width">
+            <mat-label>File Name</mat-label>
+            <input matInput placeholder="Ex. cat" [(ngModel)]="fileName">
+          </mat-form-field>
+    </div>
+    <div mat-dialog-actions align="end">
+        <button mat-icon-button color="accent" mat-dialog-close aria-label="Example icon button with a menu icon">
+            <mat-icon class="text-dark">close</mat-icon>
+        </button>
+        <button (click)="saveWithFileName()" mat-icon-button color="accent" aria-label="Example icon button with a menu icon">
+            <mat-icon class="text-green">done</mat-icon>
+        </button>
+    </div>
+</ng-template>
+
